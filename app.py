@@ -176,19 +176,9 @@ def dashboard():
     pie_labels = list(spent_per_category.keys())
     pie_data = list(spent_per_category.values())
     
-    # Generate bar chart data (monthly spending for last 6 months)
+    # Remove bar chart data - only show current month budget tracking
     bar_labels = []
     bar_data = []
-    for i in range(6):
-        month = (datetime.date.today().replace(day=1) - datetime.timedelta(days=30*i)).strftime('%Y-%m')
-        month_transactions = Transaction.query.filter_by(user_id=current_user.id).filter(Transaction.date.like(f'{month}-%')).all()
-        month_expenses = sum(t.amount for t in month_transactions if t.type == 'Expense')
-        bar_labels.append(month)
-        bar_data.append(month_expenses)
-    
-    # Reverse to show oldest to newest
-    bar_labels.reverse()
-    bar_data.reverse()
     
     pagination = None
     return render_template(

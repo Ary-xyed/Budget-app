@@ -53,9 +53,6 @@
             <div class="col-md-6">
                 <canvas id="pieChart"></canvas>
             </div>
-            <div class="col-md-6">
-                <canvas id="barChart"></canvas>
-            </div>
         </div>
         <!-- Transaction table -->
         <div class="mb-4">
@@ -133,25 +130,6 @@
                 responsive: true,
                 plugins: {
                     legend: { position: 'bottom' }
-                }
-            }
-        });
-        // Bar chart: Monthly spending (last 6 months)
-        var barCtx = document.getElementById('barChart').getContext('2d');
-        var barChart = new Chart(barCtx, {
-            type: 'bar',
-            data: {
-                labels: {{ bar_labels|tojson }},
-                datasets: [{
-                    label: 'Expenses',
-                    data: {{ bar_data|tojson }},
-                    backgroundColor: '#007bff'
-                }]
-            },
-            options: {
-                responsive: true,
-                scales: {
-                    y: { beginAtZero: true }
                 }
             }
         });
