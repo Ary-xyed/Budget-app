@@ -2,4 +2,6 @@ Flask
 Flask-Login
 Flask-SQLAlchemy
 WTForms
-Werkzeug 
+Flask-WTF
+Werkzeug
+gunicorn i
