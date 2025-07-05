@@ -4,4 +4,4 @@ Flask-SQLAlchemy
 WTForms
 Flask-WTF
 Werkzeug
-gunicorn i
+gunicorn
